@@ -21,14 +21,14 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W9k-aX-pdC">
                                 <rect key="frame" x="0.0" y="47" width="428" height="845"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r5p-4F-HuY">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r5p-4F-HuY">
                                     <size key="itemSize" width="428" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YXn-zd-KG8">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ChatListCollectionViewCell" reuseIdentifier="ChatListCollectionViewCell" id="YXn-zd-KG8" customClass="ChatListCollectionViewCell" customModule="ChatList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C5d-iQ-nCf">
@@ -56,8 +56,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대화내용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7p-Yr-tN5">
-                                                    <rect key="frame" x="116" y="67" width="56" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="대화내용" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7p-Yr-tN5">
+                                                    <rect key="frame" x="116.00000000000001" y="57.000000000000007" width="55.666666666666671" height="19.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -67,15 +67,21 @@
                                                 <constraint firstItem="O8D-T7-z1M" firstAttribute="centerY" secondItem="C5d-iQ-nCf" secondAttribute="centerY" id="7nM-mA-5LR"/>
                                                 <constraint firstItem="W7p-Yr-tN5" firstAttribute="leading" secondItem="NEM-xg-S6H" secondAttribute="leading" id="E2c-FH-wXx"/>
                                                 <constraint firstItem="CD3-nh-LiB" firstAttribute="leading" secondItem="C5d-iQ-nCf" secondAttribute="leading" constant="20" id="G4z-w4-bWS"/>
-                                                <constraint firstItem="W7p-Yr-tN5" firstAttribute="top" secondItem="NEM-xg-S6H" secondAttribute="bottom" constant="20" id="QRi-3c-h13"/>
-                                                <constraint firstAttribute="trailing" secondItem="O8D-T7-z1M" secondAttribute="trailing" constant="20" id="UwD-fl-vm8"/>
+                                                <constraint firstItem="W7p-Yr-tN5" firstAttribute="top" secondItem="NEM-xg-S6H" secondAttribute="bottom" constant="10" id="QRi-3c-h13"/>
                                                 <constraint firstItem="CD3-nh-LiB" firstAttribute="top" secondItem="C5d-iQ-nCf" secondAttribute="top" constant="20" id="X4U-AE-mT7"/>
                                                 <constraint firstItem="NEM-xg-S6H" firstAttribute="top" secondItem="CD3-nh-LiB" secondAttribute="top" id="YAE-3M-Tz6"/>
                                                 <constraint firstItem="NEM-xg-S6H" firstAttribute="leading" secondItem="CD3-nh-LiB" secondAttribute="trailing" constant="16" id="agL-m7-gCZ"/>
                                                 <constraint firstItem="O8D-T7-z1M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W7p-Yr-tN5" secondAttribute="trailing" constant="10" id="h1v-IS-QjP"/>
+                                                <constraint firstAttribute="trailing" secondItem="O8D-T7-z1M" secondAttribute="trailing" constant="20" symbolic="YES" id="peh-j3-Cnw"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="428" height="128"/>
+                                        <connections>
+                                            <outlet property="chatLabel" destination="W7p-Yr-tN5" id="7Rh-4v-c3g"/>
+                                            <outlet property="dateLabel" destination="O8D-T7-z1M" id="a4i-wr-RDn"/>
+                                            <outlet property="nameLabel" destination="NEM-xg-S6H" id="N0i-Hv-jKN"/>
+                                            <outlet property="thumnaliImg" destination="CD3-nh-LiB" id="zIc-hd-qqj"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -89,6 +95,9 @@
                             <constraint firstItem="W9k-aX-pdC" firstAttribute="leading" secondItem="IVt-hL-poe" secondAttribute="leading" id="fUT-IB-jJZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colletionView" destination="W9k-aX-pdC" id="FNa-B3-2kK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXZ-ih-qtw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
